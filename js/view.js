@@ -15,6 +15,7 @@ export class View {
 		let cmds = {
 			'showMovies': function showMovies(movies) {
 				_self.clearMoviesList();
+				console.log(movies);
 				let moviesListView = _self.template.moviesListTemplate(movies);
 				_self.moviesListContainer.insertAdjacentHTML('beforeend', moviesListView);
 			},

@@ -44,6 +44,8 @@
     padding-left: 10px;
     padding-right: 10px;
     box-shadow: 0 0.5em 1.5em 0 rgba(0,0,0,.1);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .movie-title {
     padding-top: 10px;
@@ -209,4 +211,15 @@ p.movie-description {
         transform: rotate(360deg);
     }
 }
-
+.progress-container {
+    height: 20px;
+    width: 50px;
+    border: 1px solid #080a08;
+}
+.progress {
+    box-sizing: border-box;
+    background-color: #5cb85c;
+    width: 69%;
+    height: 100%;
+    padding: 0 1px;
+}
