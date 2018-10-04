@@ -7,9 +7,21 @@ function qsa(selector, element) {
 };
 
 function $on(target, type, callback) {
-	target.addEventListener(type, callback);
+	function dispatch(event) {
+		if (!event.target.disabled) {
+			callback.call(target, event);
+		}
+	}
+	target.addEventListener(type, dispatch);
 };
-
+function show(element) {
+	element.classList.remove('hide');
+	element.classList.add('show');
+}
+function hide(element) {
+	element.classList.remove('show');
+	element.classList.add('hide');
+}
 function $bubble(target, type, callback) {
 
 	function callTarget(event) {
@@ -41,5 +53,7 @@ export default {
 	create: $create,
 	bubble: $bubble,
 	on: $on,
-	createDOMList: createDOMList
+	createDOMList: createDOMList,
+	hide: hide,
+	show: show
 }

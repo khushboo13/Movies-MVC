@@ -17,9 +17,14 @@ export class Controller {
 	}
 	getTrendingMovies(page) {
 		this.model.getTrendingMovies(page, (result) => {
-			this.view.render('hideLoader');
+			this.view.render('hideLoader', 'loader');
 			this.view.render('showMovies', result.movies);
 			this.currPage = result.currPage;
+			if(this.currPage === 1) {
+				this.view.render('disable', 'prevBtn');
+			} else {
+				this.view.render('enable', 'prevBtn');
+			}
 			if(result.total_pages > 1) {
 				this.view.render('showFooter');
 			}

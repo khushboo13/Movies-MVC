@@ -19,16 +19,19 @@ export class View {
 				_self.moviesListContainer.insertAdjacentHTML('beforeend', moviesListView);
 			},
 			'hideLoader': function hideLoader() {
-				_self.loader.classList.remove('show');
-				_self.loader.classList.add('hide');
+				util.hide(_self.loader);
 			},
 			'showLoader': function hideLoader() {
-				_self.loader.classList.remove('hide');
-				_self.loader.classList.add('show');
+				util.show(_self.loader);
 			},
 			'showFooter': function showFooter() {
-				_self.footer.classList.remove('hide');
-				_self.footer.classList.add('show');
+				util.show(_self.footer);
+			},
+			'disable': function disable(btn) {
+				_self[btn].setAttribute('disabled', true);
+			},
+			'enable': function enable(btn) {
+				_self[btn].removeAttribute('disabled');
 			}
 		}
 		cmds[type](data);
